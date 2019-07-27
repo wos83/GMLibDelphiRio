@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3BC949C4-F759-482C-A64C-E13E05ABDE91}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="dpk\GMLib_D_Rio.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dpk\GMLib_D_Rio_VCL.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dpk\GMLibEdit_D_Rio.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GMLib_D_Rio">
+        <MSBuild Projects="dpk\GMLib_D_Rio.dproj"/>
+    </Target>
+    <Target Name="GMLib_D_Rio:Clean">
+        <MSBuild Projects="dpk\GMLib_D_Rio.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GMLib_D_Rio:Make">
+        <MSBuild Projects="dpk\GMLib_D_Rio.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GMLib_D_Rio_VCL">
+        <MSBuild Projects="dpk\GMLib_D_Rio_VCL.dproj"/>
+    </Target>
+    <Target Name="GMLib_D_Rio_VCL:Clean">
+        <MSBuild Projects="dpk\GMLib_D_Rio_VCL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GMLib_D_Rio_VCL:Make">
+        <MSBuild Projects="dpk\GMLib_D_Rio_VCL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GMLibEdit_D_Rio">
+        <MSBuild Projects="dpk\GMLibEdit_D_Rio.dproj"/>
+    </Target>
+    <Target Name="GMLibEdit_D_Rio:Clean">
+        <MSBuild Projects="dpk\GMLibEdit_D_Rio.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GMLibEdit_D_Rio:Make">
+        <MSBuild Projects="dpk\GMLibEdit_D_Rio.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GMLib_D_Rio;GMLib_D_Rio_VCL;GMLibEdit_D_Rio"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GMLib_D_Rio:Clean;GMLib_D_Rio_VCL:Clean;GMLibEdit_D_Rio:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GMLib_D_Rio:Make;GMLib_D_Rio_VCL:Make;GMLibEdit_D_Rio:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
